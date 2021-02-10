@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{% block result %}
+    <div class="container">
+        <a href="/ff"><button class="btn btn-primary btn-lg float-right mt-3">Form</button></a>
+        <a href="/"><button class="btn btn-primary btn-lg float-left mt-3">Main</button></a><br>
+    </div><br><br><br>
+    <div class="container col-md-3">
+        <h1>Hello {{name}}</h1><br>
+        <div class="card">
+            <div class="card-header">
+                <h2>Your Result Card</h2>
+            </div>
+            <div class="card-body">
+                <h4>Age : {{age}}</h4>
+                <h4>sex : {{sex}}</h4>
+                <h4>Trp : {{trp}}</h4>
+                <h4>CHolestrol : {{cholesterol}}</h4>
+                <h4>Fbs : {{fbs}}</h4>
+                <h4>ECg : {{ecg}}</h4>
+                <h4>Thalaz :{{Thalaz}}</h4>
+                <h4>Exong : {{Exong}}</h4>
+                <h4>Old Peak : {{Oldpeak}}</h4>
+                <h4>Slope : {{slope}}</h4>
+                <h2 class="text-danger">Final Result : {{rrr}}</h2>
+            </div>
+        </div>
+    </div>
+ {%endblock%}
