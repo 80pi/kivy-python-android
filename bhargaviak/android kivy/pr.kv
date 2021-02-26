@@ -38,11 +38,11 @@ Manager:
 <Form>:
     name:"form" 
     slide_age:slide_age
-    # slide_trp:slider_trp
-    # slide_cholestrol:slider_cholestrol
-    # slide_ecg:slider_ecg
-    # slide_thalaz:slider_thalaz
-    # slide_oldpeak:slider_oldpeak
+    slide_trp:slide_trp
+    slide_cholestrol:slide_cholestrol
+    slide_ecg:slide_ecg
+    slide_thalaz:slide_thalaz
+    slide_oldpeak:slide_oldpeak
     # BoxLayout:
     #     orientation: 'vertical'
     #     size:root.width,root.height
@@ -288,24 +288,54 @@ Manager:
             Label:
                 text:'Trp'
                 color:0,0,0,1
-            TextInput:
-                id:trp
-                hint_text:"Enter Trp value"
-                input_type:'number'
-                input_filter:'int'
-                    # for input only to number
-                multiline:False 
+            # TextInput:
+            #     id:trp
+            #     hint_text:"Enter Trp value"
+            #     input_type:'number'
+            #     input_filter:'int'
+            #         # for input only to number
+            #     multiline:False 
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_trp
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_trp(*args)
                 
             Label:
                 text:'Cholestrol'
                 color:0,0,0,1
-            TextInput:
-                id:cholestrol
-                hint_text:"Enter cholestrol value"
-                input_type:'number'
-                input_filter:'int'
-                    # for input only to number
-                multiline:False 
+            # TextInput:
+            #     id:cholestrol
+            #     hint_text:"Enter cholestrol value"
+            #     input_type:'number'
+            #     input_filter:'int'
+            #         # for input only to number
+            #     multiline:False
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_cholestrol
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_cholestrol(*args) 
 
             Label:
                 text:'Fbs'
@@ -329,24 +359,54 @@ Manager:
             Label:
                 text:'ECG'
                 color:0,0,0,1
-            TextInput:
-                id:ecg
-                hint_text:"Enter Ecg value"
-                input_type:'number'
-                input_filter:'int'
-                    # for input only to number
-                multiline:False 
+            # TextInput:
+            #     id:ecg
+            #     hint_text:"Enter Ecg value"
+            #     input_type:'number'
+            #     input_filter:'int'
+            #         # for input only to number
+            #     multiline:False 
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_ecg
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_ecg(*args)
                 
             Label:
                 text:'Thalaz'
                 color:0,0,0,1
-            TextInput:
-                id:thalaz
-                hint_text:"Enter Thalaz value"
-                input_type:'number'
-                input_filter:'int'
-                    # for input only to number
-                multiline:False 
+            # TextInput:
+            #     id:thalaz
+            #     hint_text:"Enter Thalaz value"
+            #     input_type:'number'
+            #     input_filter:'int'
+            #         # for input only to number
+            #     multiline:False 
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_thalaz
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_thalaz(*args)
                 
             Label:
                 text:'Exong'
@@ -371,13 +431,28 @@ Manager:
             Label:
                 text:'Old Peak'
                 color:0,0,0,1
-            TextInput:
-                id:oldPeak
-                hint_text:"Enter Old Peak value"
-                input_type:'number'
-                input_filter:'int'
-                    # for input only to number
-                multiline:False 
+            # TextInput:
+            #     id:oldPeak
+            #     hint_text:"Enter Old Peak value"
+            #     input_type:'number'
+            #     input_filter:'int'
+            #         # for input only to number
+            #     multiline:False
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_oldpeak
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_oldpeak(*args) 
 
             Label:
                 text:'Slope'

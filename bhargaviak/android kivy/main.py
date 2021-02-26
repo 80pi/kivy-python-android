@@ -10,6 +10,7 @@ class Main(Screen):
 
 class Form(Screen):
 
+    # for check boxes
     def checkbox_click_sex(self,instance,value):
         pass
     def checkbox_click_fbs(self,instance,value):
@@ -19,6 +20,7 @@ class Form(Screen):
     def checkbox_click_slope(self,instance,value):
         pass
 
+    # for sliders
     def slide_it_age(self,*args):
         self.slide_age.text=str(int(args[1]))
     def slide_it_trp(self,*args):
