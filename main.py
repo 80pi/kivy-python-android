@@ -38,7 +38,6 @@ class Result(Screen):
     pass
 class Manager(ScreenManager):
     pass
-
 kv=Builder.load_file("pr.kv")
 class Predection(App):
     def build(self):
