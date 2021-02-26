@@ -1,0 +1,507 @@
+Manager:
+    Main:
+    Form:
+    Result:
+
+<Main>:
+    name:"main"
+    GridLayout:
+        cols:1
+        Label:
+            text:'Predection Form For Heart Attack'
+            color:0,0,0,1
+            font_size:30
+        BoxLayout:
+            padding:5
+            Image:
+                size_hint_y:None
+                source:"neclogo.jpg"
+                width:1000
+                height:200
+        
+        GridLayout:
+            cols:1
+        Button:
+            text:"Form"
+            background_color: 0, 0, 1, 1
+            size_hint: 0.3, 0.3
+            pos: 100, 100
+            font_size: 40
+            on_release:
+                app.root.current="form"
+                root.manager.transition.direction="left"
+
+
+            
+
+
+<Form>:
+    name:"form" 
+    slide_age:slide_age
+    slide_trp:slide_trp
+    slide_cholestrol:slide_cholestrol
+    slide_ecg:slide_ecg
+    slide_thalaz:slide_thalaz
+    slide_oldpeak:slide_oldpeak
+    # BoxLayout:
+    #     orientation: 'vertical'
+    #     size:root.width,root.height
+    #     GridLayout:
+    #             cols:2
+    #             padding:9
+    #             spacing:10
+
+    #             Label:
+    #                 text:"Name"
+    #                 color:0,0,0,1
+    #             TextInput:
+    #                 id:name
+    #                 hint_text:"Enter your name"
+    #                 input_type:'text'
+    #                 multiline:False
+
+    #             Label:
+    #                 text:'Age'
+    #                 color:0,0,0,1
+    #             TextInput:
+    #                 id:age
+    #                 hint_text:"Enter your Age"
+    #                 input_type:'number'
+    #                 input_filter:'int'
+    #                     # for input only to number
+    #                 multiline:False 
+
+    # # radio button
+    #             Label:
+    #                 text:'Gender'
+    #                 color:0,0,0,1
+    #             GridLayout:
+    #                 cols:4
+    #                 Label:
+    #                     text:"Male" 
+    #                     color:0,0,0,1         
+    #                 CheckBox:
+    #                     group:'sex'
+    #                     on_active:root.checkbox_click_sex(self,self.active)
+    #                     color:0,0,0,1
+    #                 Label:
+    #                     text:"Female"  
+    #                     color:0,0,0,1                                      
+    #                 CheckBox:
+    #                     group:'sex'
+    #                     on_active:root.checkbox_click_sex(self,self.active)
+    #                     color:0,0,0,1
+                
+    #             Label:
+    #                 text:'Trp'
+    #                 color:0,0,0,1
+    #             TextInput:
+    #                 id:trp
+    #                 hint_text:"Enter Trp value"
+    #                 input_type:'number'
+    #                 input_filter:'int'
+    #                     # for input only to number
+    #                 multiline:False 
+                    
+    #             Label:
+    #                 text:'Cholestrol'
+    #                 color:0,0,0,1
+    #             TextInput:
+    #                 id:cholestrol
+    #                 hint_text:"Enter cholestrol value"
+    #                 input_type:'number'
+    #                 input_filter:'int'
+    #                     # for input only to number
+    #                 multiline:False 
+
+    #             Label:
+    #                 text:'Fbs'
+    #                 color:0,0,0,1
+    #             GridLayout:
+    #                 cols:4
+    #                 Label:
+    #                     text:"0" 
+    #                     color:0,0,0,1         
+    #                 CheckBox:
+    #                     group:'fbs'
+    #                     on_active:root.checkbox_click_fbs(self,self.active)
+    #                     color:0,0,0,1
+    #                 Label:
+    #                     text:"1"  
+    #                     color:0,0,0,1                                      
+    #                 CheckBox:
+    #                     group:'fbs'
+    #                     on_active:root.checkbox_click_fbs(self,self.active)
+    #                     color:0,0,0,1
+    #             Label:
+    #                 text:'ECG'
+    #                 color:0,0,0,1
+    #             TextInput:
+    #                 id:ecg
+    #                 hint_text:"Enter Ecg value"
+    #                 input_type:'number'
+    #                 input_filter:'int'
+    #                     # for input only to number
+    #                 multiline:False 
+                    
+    #             Label:
+    #                 text:'Thalaz'
+    #                 color:0,0,0,1
+    #             TextInput:
+    #                 id:thalaz
+    #                 hint_text:"Enter Thalaz value"
+    #                 input_type:'number'
+    #                 input_filter:'int'
+    #                     # for input only to number
+    #                 multiline:False 
+                    
+    #             Label:
+    #                 text:'Exong'
+    #                 color:0,0,0,1
+    #             GridLayout:
+    #                 cols:4
+    #                 Label:
+    #                     text:"Yes" 
+    #                     color:0,0,0,1         
+    #                 CheckBox:
+    #                     group:'exong'
+    #                     on_active:root.checkbox_click_exong(self,self.active)
+    #                     color:0,0,0,1
+    #                 Label:
+    #                     text:"No"  
+    #                     color:0,0,0,1                                      
+    #                 CheckBox:
+    #                     group:'exong'
+    #                     on_active:root.checkbox_click_exong(self,self.active)
+    #                     color:0,0,0,1
+
+    #             Label:
+    #                 text:'Old Peak'
+    #                 color:0,0,0,1
+    #             TextInput:
+    #                 id:oldPeak
+    #                 hint_text:"Enter Old Peak value"
+    #                 input_type:'number'
+    #                 input_filter:'int'
+    #                     # for input only to number
+    #                 multiline:False 
+
+    #             Label:
+    #                 text:'Slope'
+    #                 color:0,0,0,1
+    #             GridLayout:
+    #                 cols:4
+    #                 Label:
+    #                     text:"0" 
+    #                     color:0,0,0,1         
+    #                 CheckBox:
+    #                     group:'slope'
+    #                     on_active:root.checkbox_click_slope(self,self.active)
+    #                     color:0,0,0,1
+    #                 Label:
+    #                     text:"1"  
+    #                     color:0,0,0,1                                      
+    #                 CheckBox:
+    #                     group:'slope'
+    #                     on_active:root.checkbox_click_slope(self,self.active)
+    #                     color:0,0,0,1
+                
+    #             Button:
+    #                 text:"Submit"
+    #                 background_color: 0.4, 0.5, 0.6, 1
+    #                 size_hint: 0.3, 0.3
+    #                 pos: 100, 100
+    #                 font_size:30
+    #                 on_release:
+    #                     app.root.current="result"
+    #                     root.manager.transition.direction="left"
+    # GridLayout:
+    #     cols:1
+    #     Label:
+    #         text:"Form"
+    #         color:0,0,0,1
+    #         size_hint: 0.3, 0.3
+    #         pos: 100, 100
+    #         font_size: 40
+    
+    BoxLayout:
+            # orientation: 'vertical'
+            # size:root.width,root.height
+        Label:
+            text:"Form"
+            color:0,0,0,1
+        GridLayout:
+            cols:2
+
+            Label:
+                text:"Name"
+                color:0,0,0,1
+            TextInput:
+                id:name
+                hint_text:"Enter your name"
+                input_type:'text'
+                multiline:False
+
+            Label:
+                text:'Age'
+                color:0,0,0,1
+            # secodm method for age slider
+            # slide_text:slider_label
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_age
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_age(*args)
+                    
+
+# radio button
+            Label:
+                text:'Gender'
+                color:0,0,0,1
+            GridLayout:
+                cols:4
+                Label:
+                    text:"Male" 
+                    color:0,0,0,1         
+                CheckBox:
+                    group:'sex'
+                    on_active:root.checkbox_click_sex(self,self.active)
+                    color:0,0,0,1
+                Label:
+                    text:"Female"  
+                    color:0,0,0,1                                      
+                CheckBox:
+                    group:'sex'
+                    on_active:root.checkbox_click_sex(self,self.active)
+                    color:0,0,0,1
+            
+            Label:
+                text:'Trp'
+                color:0,0,0,1
+            # TextInput:
+            #     id:trp
+            #     hint_text:"Enter Trp value"
+            #     input_type:'number'
+            #     input_filter:'int'
+            #         # for input only to number
+            #     multiline:False 
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_trp
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_trp(*args)
+                
+            Label:
+                text:'Cholestrol'
+                color:0,0,0,1
+            # TextInput:
+            #     id:cholestrol
+            #     hint_text:"Enter cholestrol value"
+            #     input_type:'number'
+            #     input_filter:'int'
+            #         # for input only to number
+            #     multiline:False
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_cholestrol
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_cholestrol(*args) 
+
+            Label:
+                text:'Fbs'
+                color:0,0,0,1
+            GridLayout:
+                cols:4
+                Label:
+                    text:"0" 
+                    color:0,0,0,1         
+                CheckBox:
+                    group:'fbs'
+                    on_active:root.checkbox_click_fbs(self,self.active)
+                    color:0,0,0,1
+                Label:
+                    text:"1"  
+                    color:0,0,0,1                                      
+                CheckBox:
+                    group:'fbs'
+                    on_active:root.checkbox_click_fbs(self,self.active)
+                    color:0,0,0,1
+            Label:
+                text:'ECG'
+                color:0,0,0,1
+            # TextInput:
+            #     id:ecg
+            #     hint_text:"Enter Ecg value"
+            #     input_type:'number'
+            #     input_filter:'int'
+            #         # for input only to number
+            #     multiline:False 
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_ecg
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_ecg(*args)
+                
+            Label:
+                text:'Thalaz'
+                color:0,0,0,1
+            # TextInput:
+            #     id:thalaz
+            #     hint_text:"Enter Thalaz value"
+            #     input_type:'number'
+            #     input_filter:'int'
+            #         # for input only to number
+            #     multiline:False 
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_thalaz
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_thalaz(*args)
+                
+            Label:
+                text:'Exong'
+                color:0,0,0,1
+            GridLayout:
+                cols:4
+                Label:
+                    text:"Yes" 
+                    color:0,0,0,1         
+                CheckBox:
+                    group:'exong'
+                    on_active:root.checkbox_click_exong(self,self.active)
+                    color:0,0,0,1
+                Label:
+                    text:"No"  
+                    color:0,0,0,1                                      
+                CheckBox:
+                    group:'exong'
+                    on_active:root.checkbox_click_exong(self,self.active)
+                    color:0,0,0,1
+
+            Label:
+                text:'Old Peak'
+                color:0,0,0,1
+            # TextInput:
+            #     id:oldPeak
+            #     hint_text:"Enter Old Peak value"
+            #     input_type:'number'
+            #     input_filter:'int'
+            #         # for input only to number
+            #     multiline:False
+            BoxLayout:
+                orientation: 'vertical'
+                size:root.width,root.height
+                cols:2
+                Label:
+                    id:slide_oldpeak
+                    text:"Age"
+                    color:0,0,0,1
+                    font_size:20
+                Slider:
+                    min:4
+                    max:99
+                    step:1
+                    orientation: 'horizontal'
+                    on_value:root.slide_it_oldpeak(*args) 
+
+            Label:
+                text:'Slope'
+                color:0,0,0,1
+            GridLayout:
+                cols:4
+                Label:
+                    text:"0" 
+                    color:0,0,0,1         
+                CheckBox:
+                    group:'slope'
+                    on_active:root.checkbox_click_slope(self,self.active)
+                    color:0,0,0,1
+                Label:
+                    text:"1"  
+                    color:0,0,0,1                                      
+                CheckBox:
+                    group:'slope'
+                    on_active:root.checkbox_click_slope(self,self.active)
+                    color:0,0,0,1
+                
+                
+        GridLayout:
+            cols:1    
+        Button:
+            text:"Submit"
+            background_color: 0.4, 0.5, 0.6, 1
+            size_hint: 0.3, 0.3
+            pos: 100, 100
+            font_size:30
+            on_release:
+                app.root.current="result"
+                root.manager.transition.direction="left"
+
+
+
+
+<Result>:
+    name:"result"
+    GridLayout:
+        cols:1
+        GridLayout:
+            cols:1
+        Button:
+            text:"Main"
+            background_color: 0.1, 0.5, 0.6, 1
+            size_hint: 0.3, 0.3
+            pos: 100, 100
+            font_size:30
+            on_release:
+                app.root.current="main"
+                root.manager.transition.direction="right"
