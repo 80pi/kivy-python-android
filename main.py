@@ -4,6 +4,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.widget import Widget
 from kivy.core.window import Window
 from kivy.lang import Builder
+from kivy.uix.popup import Popup
 from kivy.uix.scrollview import ScrollView
 from kivy.properties import ObjectProperty
 # from kivy.uix.list import MDList,ThreeLineListItem
@@ -49,15 +50,27 @@ class Form(Screen):
     def slide_it_cp(self,*args):
         self.slide_cheast.text=str(int(args[1]))
         self.cp=str(int(args[1]))
+    def reset():
+        self.nn.text=""
+        self.age=""
+        self.sex=""
+        self.cp=""
+        self.trp=""
+        self.cholestrol=""
+        self.fbs=""
+        self.ecg=""
+        self.thalaz=""
+        self.exong=""
+        self.oldpeak=""
+        self.slope=""
     def calc(self):
         nn=ObjectProperty(None)
         try:
             print(self.nn.text,self.age,self.sex,self.cp,self.trp,self.cholestrol,self.fbs,self.ecg,self.thalaz,self.exong,self.oldpeak,self.slope)
+            Manager.current="result"
         except:
             print("give all values")
-        
-        
-
+            invalidLogin()
     pass
 
 
@@ -66,8 +79,19 @@ class Result(Screen):
 class Manager(ScreenManager):
     pass
 
+def invalidLogin():
+    pop = Popup(title='Invalid Form',
+                  content=Label(text='Please Fill all the columns in form'),
+                  size_hint=(None, None), size=(400, 400))
+    pop.open()
+
 
 kv=Builder.load_file("pr.kv")
+sm=Manager()
+screen=[Main(name="main"),Form(name="form"),Result(name="result")]
+for ss in screen:
+    sm.add_widget(ss)
+sm.current='main'
 class Predection(App):
     def build(self):
         Window.clearcolor=(1,1,1,1)
