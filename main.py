@@ -66,9 +66,6 @@ class Form(Screen):
                 final_values=[np.array(l)]
                 print(final_values)
                 model = pickle.load(open('model.pkl', 'rb'))
-                # upto done here done
-                print("jfkfj")
-                # from here onwards error occurs
                 # prediction=model.predict(final_values)
                 # print('2')
                 # print(prediction)
