@@ -35,7 +35,6 @@ Manager:
                     size:120,120
                     pos:350,25
 
-
             
 
 
@@ -346,9 +345,29 @@ Manager:
 
 <Result>:
     name:"result"
+    rer: rer
+    ini:ini
+    wel:wel
     GridLayout:
         cols:1
-        
+        Label:
+            id:ini
+            pos_hint:{'x':0.1,'top':0.9}
+            size_hint:0.8,0.2
+            text:"Hi "
+            color:0,0,0,1
+        Label:
+            id:wel
+            pos_hint:{'x':0.1,'top':0.9}
+            size_hint:0.8,0.2
+            text:"Your report"
+            color:0,0,0,1
+        Label:
+            id:rer
+            pos_hint:{'x':0.1,'top':0.9}
+            size_hint:0.8,0.2
+            text:"Result be: "
+            color:0,0,0,1
 
         FloatLayout:
             cols:2

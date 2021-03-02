@@ -7,6 +7,11 @@ from kivy.lang import Builder
 from kivy.uix.popup import Popup
 from kivy.uix.scrollview import ScrollView
 from kivy.properties import ObjectProperty
+import pickle
+import numpy as np
+import warnings 
+import re
+warnings.simplefilter("ignore")
 # from kivy.uix.list import MDList,ThreeLineListItem
 class Main(Screen):
     pass
@@ -50,24 +55,29 @@ class Form(Screen):
     def slide_it_cp(self,*args):
         self.slide_cheast.text=str(int(args[1]))
         self.cp=str(int(args[1]))
-    def reset():
-        self.nn.text=""
-        self.age=""
-        self.sex=""
-        self.cp=""
-        self.trp=""
-        self.cholestrol=""
-        self.fbs=""
-        self.ecg=""
-        self.thalaz=""
-        self.exong=""
-        self.oldpeak=""
-        self.slope=""
+    
     def calc(self):
         nn=ObjectProperty(None)
         try:
-            print(self.nn.text,self.age,self.sex,self.cp,self.trp,self.cholestrol,self.fbs,self.ecg,self.thalaz,self.exong,self.oldpeak,self.slope)
-            Manager.current="result"
+            # print(self.nn.text,self.age,self.sex,self.cp,self.trp,self.cholestrol,self.fbs,self.ecg,self.thalaz,self.exong,self.oldpeak,self.slope)
+            l=[]
+            if(re.match(r'^[a-zA-Z ]+$',self.nn.text)):
+                l.extend([self.age,self.sex,self.cp,self.trp,self.cholestrol,self.fbs,self.ecg,self.thalaz,self.exong,self.oldpeak,self.slope])
+                final_values=[np.array(l)]
+                print(final_values)
+                model = pickle.load(open('model.pkl', 'rb'))
+                # upto done here done
+                print("jfkfj")
+                # from here onwards error occurs
+                # prediction=model.predict(final_values)
+                # print('2')
+                # print(prediction)
+                # print('3')
+                Result.na=self.nn.text
+                Result.fin='0'
+                sm.current='result'
+            else:
+                raise Exception("Name not corret")
         except:
             print("give all values")
             invalidLogin()
@@ -75,6 +85,11 @@ class Form(Screen):
 
 
 class Result(Screen):
+    fin=""
+    na=""
+    def on_enter(self, *args):
+        self.ini.text="Hi "+self.na
+        self.rer.text = "Result be: " + self.fin
     pass
 class Manager(ScreenManager):
     pass
@@ -95,7 +110,7 @@ sm.current='main'
 class Predection(App):
     def build(self):
         Window.clearcolor=(1,1,1,1)
-        return kv      
+        return sm      
 
 if __name__ == '__main__':
     Predection().run()
