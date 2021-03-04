@@ -145,7 +145,7 @@ def NB(dataset,smote):
     print(cm)
     return f
 
-dataset=pd.read_csv('C:/Users/gopiv/Desktop/git clone kivy/kivy-python-android/cleveland.csv')
+dataset=pd.read_csv('cleveland.csv')
 
 #Data Cleaning
 dataset.isnull()
