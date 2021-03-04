@@ -41,15 +41,16 @@ Manager:
 <Form>:
     name:"form" 
     nn:name
-
+    op:Oldpeak
 
     slide_age:slide_age
     slide_trp:slide_trp
     slide_cholestrol:slide_cholestrol
     slide_ecg:slide_ecg
     slide_thalaz:slide_thalaz
-    slide_oldpeak:slide_oldpeak
+    # slide_oldpeak:slide_oldpeak
     slide_cheast:slide_cheast
+    slide_ca:slide_ca
     
     BoxLayout:
         size_hint: None,None
@@ -80,7 +81,7 @@ Manager:
                         Image:
                             source:'menu.png'
                             size:100,100
-                            pos:0,580
+                            pos:0,585
                     Label:
                         text:'Form'
                         
@@ -267,7 +268,7 @@ Manager:
                             color:0,0,0,1         
                         CheckBox:
                             group:'exong'
-                            on_active:root.checkbox_click_exong(self,self.active,'yes')
+                            on_active:root.checkbox_click_exong(self,self.active,'1')
                             color:0,0,0,1
                         Label:
                             id:'exong'
@@ -275,37 +276,45 @@ Manager:
                             color:0,0,0,1                                      
                         CheckBox:
                             group:'exong'
-                            on_active:root.checkbox_click_exong(self,self.active,'no')
+                            on_active:root.checkbox_click_exong(self,self.active,'0')
                             color:0,0,0,1
 
+                    # Label:
+                    #     text:'Old Peak'
+                    #     color:0,0,0,1
+                    # BoxLayout:
+                    #     orientation: 'vertical'
+                    #     size:root.width,root.height
+                    #     cols:2
+                    #     Label:
+                    #         id:slide_oldpeak
+                    #         text:"Oldpeak"
+                    #         color:0,0,0,1
+                    #         font_size:15
+                    #     Slider:
+                    #         min:0
+                    #         max:10
+                    #         step:0.1
+                    #         orientation: 'horizontal'
+                    #         on_value:root.slide_it_oldpeak(*args) 
                     Label:
-                        text:'Old Peak'
+                        text:"Old Peak"
                         color:0,0,0,1
-                    BoxLayout:
-                        orientation: 'vertical'
-                        size:root.width,root.height
-                        cols:2
-                        Label:
-                            id:slide_oldpeak
-                            text:"Oldpeak"
-                            color:0,0,0,1
-                            font_size:15
-                        Slider:
-                            min:0
-                            max:10
-                            step:0.1
-                            orientation: 'horizontal'
-                            on_value:root.slide_it_oldpeak(*args) 
+                    TextInput:
+                        id:Oldpeak
+                        hint_text:"range 0 to 10 by step 0.1"
+                        input_type:'number'
+                        multiline:False
 
                     Label:
                         text:'Slope'
                         color:0,0,0,1
                     GridLayout:
-                        cols:4
+                        cols:6
                         Label:
                             id:'slope'
-                            text:"0" 
-                            color:0,0,0,1         
+                            text:"0"  
+                            color:0,0,0,1                                      
                         CheckBox:
                             group:'slope'
                             on_active:root.checkbox_click_slope(self,self.active,'0')
@@ -318,6 +327,68 @@ Manager:
                             group:'slope'
                             on_active:root.checkbox_click_slope(self,self.active,'1')
                             color:0,0,0,1
+                        Label:
+                            id:'slope'
+                            text:"2" 
+                            color:0,0,0,1         
+                        CheckBox:
+                            group:'slope'
+                            on_active:root.checkbox_click_slope(self,self.active,'2')
+                            color:0,0,0,1
+
+
+                    Label:
+                        text:'Ca'
+                        color:0,0,0,1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size:root.width,root.height
+                        cols:2
+                        Label:
+                            id:slide_ca
+                            text:"CA"
+                            color:0,0,0,1
+                            font_size:15
+                        Slider:
+                            min:0
+                            max:3
+                            step:1
+                            orientation: 'horizontal'
+                            on_value:root.slide_it_ca(*args) 
+
+                    
+
+
+                    Label:
+                        text:'Thal'
+                        color:0,0,0,1
+                    GridLayout:
+                        cols:6
+                        Label:
+                            id:'thal'
+                            text:"0" 
+                            color:0,0,0,1         
+                        CheckBox:
+                            group:'thal'
+                            on_active:root.checkbox_click_thal(self,self.active,'0')
+                            color:0,0,0,1
+                        Label:
+                            id:'thal'
+                            text:"1"  
+                            color:0,0,0,1                                      
+                        CheckBox:
+                            group:'thal'
+                            on_active:root.checkbox_click_thal(self,self.active,'1')
+                            color:0,0,0,1
+                        Label:
+                            id:'thal'
+                            text:"2"  
+                            color:0,0,0,1                                      
+                        CheckBox:
+                            group:'thal'
+                            on_active:root.checkbox_click_thal(self,self.active,'1')
+                            color:0,0,0,1
+                        
                 
             
             
@@ -327,7 +398,7 @@ Manager:
                             Button:
                                 background_color: 0.4, 0.5, 0.6, 1
                                 size_hint: None,None
-                                size:150,50
+                                size:125,25
                                 # pos:305,25
                                 pos:350,10
                                 font_size:30
@@ -337,7 +408,7 @@ Manager:
                                 #     root.manager.transition.direction="left"
                                 Image:
                                     source:'submit.jpg'
-                                    size:150,150
+                                    size:125,125
                                     pos:350,-50
 
 

@@ -20,58 +20,67 @@ class Form(Screen):
     
     # for check boxes
     def checkbox_click_sex(self,instance,value,giv):
-        self.sex=giv
+        self.sex=int(giv)
         pass
     def checkbox_click_fbs(self,instance,value,giv):
-        self.fbs=giv
+        self.fbs=int(giv)
         pass
     def checkbox_click_exong(self,instance,value,giv):
-        self.exong=giv
+        self.exong=int(giv)
         pass
     def checkbox_click_slope(self,instance,value,giv):
-        self.slope=giv
+        self.slope=int(giv)
+        pass
+    def checkbox_click_thal(self,instance,value,giv):
+        self.thal=int(giv)
         pass
 
 
     # for sliders
     def slide_it_age(self,*args):
         self.slide_age.text=str(int(args[1]))
-        self.age=str(int(args[1]))        
+        self.age=(int(args[1]))        
     def slide_it_trp(self,*args):
         self.slide_trp.text=str(int(args[1]))
-        self.trp=str(int(args[1]))
+        self.trp=(int(args[1]))
     def slide_it_cholestrol(self,*args):
         self.slide_cholestrol.text=str(int(args[1]))
-        self.cholestrol=str(int(args[1]))
+        self.cholestrol=(int(args[1]))
     def slide_it_ecg(self,*args):
         self.slide_ecg.text=str(int(args[1]))
-        self.ecg=str(int(args[1]))
+        self.ecg=(int(args[1]))
     def slide_it_thalaz(self,*args):
         self.slide_thalaz.text=str(int(args[1]))
-        self.thalaz=str(int(args[1]))
+        self.thalaz=(int(args[1]))
     def slide_it_oldpeak(self,*args):
         self.slide_oldpeak.text=str(int(args[1]))
-        self.oldpeak=str(int(args[1]))
+        self.oldpeak=(int(args[1]))
     def slide_it_cp(self,*args):
         self.slide_cheast.text=str(int(args[1]))
-        self.cp=str(int(args[1]))
+        self.cp=(int(args[1]))
+    def slide_it_ca(self,*args):
+        self.slide_ca.text=str(int(args[1]))
+        self.ca=(int(args[1]))
     
     def calc(self):
         nn=ObjectProperty(None)
+        op=ObjectProperty(None)
+        
         try:
-            # print(self.nn.text,self.age,self.sex,self.cp,self.trp,self.cholestrol,self.fbs,self.ecg,self.thalaz,self.exong,self.oldpeak,self.slope)
             l=[]
             if(re.match(r'^[a-zA-Z ]+$',self.nn.text)):
-                l.extend([self.age,self.sex,self.cp,self.trp,self.cholestrol,self.fbs,self.ecg,self.thalaz,self.exong,self.oldpeak,self.slope])
+                l.extend([self.age,self.sex,self.cp,self.trp,self.cholestrol,self.fbs,self.ecg,self.thalaz,self.exong,self.op.text,self.slope])
                 final_values=[np.array(l)]
                 print(final_values)
                 model = pickle.load(open('model.pkl', 'rb'))
-                # prediction=model.predict(final_values)
-                # print('2')
-                # print(prediction)
-                # print('3')
+                prediction=model.predict(final_values)
+                print(prediction)
                 Result.na=self.nn.text
-                Result.fin='0'
+                if prediction[0]==0:
+                    Result.fin='You are not Diagnosed'
+                else:
+                    Result.fin='You are Diagnosed'
+
                 sm.current='result'
             else:
                 raise Exception("Name not corret")
