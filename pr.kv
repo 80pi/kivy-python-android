@@ -51,333 +51,332 @@ Manager:
     GridLayout:
         cols:1
         pos:200,0
-        BoxLayout:
-            ScrollView:
-                size_hint_y:.80
-                pos_hint: {'x':0,'y':.10 }
-                do_scroll_x:False
-                do_scroll_y:True
+        ScrollView:
+            size_hint_y:.80
+            pos_hint: {'x':0,'y':.10 }
+            do_scroll_x:False
+            do_scroll_y:True
 
-                BoxLayout:
-                    size_hint:None,None
-                    size:700,700
-                    GridLayout:
-                        cols:2
-                        Button:       
-                            background_color: (1,1,1,1)
-                            size_hint: None,None
-                            size:90,50
-                            pos:260,55
-                            font_size:30
-                            on_release:
-                                app.root.current="main"
-                                root.manager.transition.direction="right"
-                            Image:
-                                source:'menu.png'
-                                size:100,100
-                                pos:0,585
-                        Label:
-                            text:'Form'
-                            
-                        Label:
-                            text:"Name"
-                            color:0,0,0,1
-                        TextInput:
-                            id:name
-                            hint_text:"Enter your name"
-                            input_type:'text'
-                            multiline:False
-
-                        Label:
-                            text:'Age'
-                            color:0,0,0,1
-                        BoxLayout:
-                            orientation: 'vertical'
-                            size:root.width,root.height
-                            cols:2
-                            Label:
-                                id:slide_age
-                                text:"Age"
-                                color:0,0,0,1
-                                font_size:15
-                            Slider:
-                                min:4
-                                max:99
-                                step:1
-                                orientation: 'horizontal'
-                                on_value:root.slide_it_age(*args)
-                                
-
-                
-                        Label:
-                            text:'Gender'
-                            color:0,0,0,1
-                        GridLayout:
-                            cols:4
-                            Label:
-                                id:'gen'
-                                text:"Male" 
-                                color:0,0,0,1         
-                            CheckBox:
-                                group:'sex'
-                                on_active:root.checkbox_click_sex(self,self.active,'0')
-                                color:0,0,0,1
-                            Label:
-                                id:'gen'
-                                text:"Female"  
-                                color:0,0,0,1                                      
-                            CheckBox:
-                                group:'sex'
-                                on_active:root.checkbox_click_sex(self,self.active,'1')
-                                color:0,0,0,1
+            BoxLayout:
+                size_hint:None,None
+                size:700,700
+                GridLayout:
+                    cols:2
+                    Button:       
+                        background_color: (1,1,1,1)
+                        size_hint: None,None
+                        size:90,50
+                        pos:260,55
+                        font_size:30
+                        on_release:
+                            app.root.current="main"
+                            root.manager.transition.direction="right"
+                        Image:
+                            source:'menu.png'
+                            size:100,100
+                            pos:0,585
+                    Label:
+                        text:'Form'
                         
+                    Label:
+                        text:"Name"
+                        color:0,0,0,1
+                    TextInput:
+                        id:name
+                        hint_text:"Enter your name"
+                        input_type:'text'
+                        multiline:False
 
+                    Label:
+                        text:'Age'
+                        color:0,0,0,1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size:root.width,root.height
+                        cols:2
                         Label:
-                            text:"Cheast pain"
-                            color:0,0,0,1 
-                        BoxLayout:
-                            orientation: 'vertical'
-                            size:root.width,root.height
-                            cols:2
-                            Label:
-                                id:slide_cheast
-                                text:"Cheast Pain"
-                                color:0,0,0,1
-                                font_size:15
-                            Slider:
-                                min:0
-                                max:3
-                                step:1
-                                orientation: 'horizontal'
-                                on_value:root.slide_it_cp(*args)
-
-
-                        Label:
-                            text:'Rbp'
+                            id:slide_age
+                            text:"Age"
                             color:0,0,0,1
-                        BoxLayout:
-                            orientation: 'vertical'
-                            size:root.width,root.height
-                            cols:2
-                            Label:
-                                id:slide_trp
-                                text:"rbp"
-                                color:0,0,0,1
-                                font_size:15
-                            Slider:
-                                min:90
-                                max:150
-                                step:1
-                                orientation: 'horizontal'
-                                on_value:root.slide_it_trp(*args)
+                            font_size:15
+                        Slider:
+                            min:4
+                            max:99
+                            step:1
+                            orientation: 'horizontal'
+                            on_value:root.slide_it_age(*args)
                             
-                        Label:
-                            text:'Cholestrol'
-                            color:0,0,0,1
-                        BoxLayout:
-                            orientation: 'vertical'
-                            size:root.width,root.height
-                            cols:2
-                            Label:
-                                id:slide_cholestrol
-                                text:"Cholestrol"
-                                color:0,0,0,1
-                                font_size:15
-                            Slider:
-                                min:120
-                                max:600
-                                step:1
-                                orientation: 'horizontal'
-                                on_value:root.slide_it_cholestrol(*args) 
 
+            
+                    Label:
+                        text:'Gender'
+                        color:0,0,0,1
+                    GridLayout:
+                        cols:4
                         Label:
-                            text:'Fbs'
+                            id:'gen'
+                            text:"Male" 
+                            color:0,0,0,1         
+                        CheckBox:
+                            group:'sex'
+                            on_active:root.checkbox_click_sex(self,self.active,'0')
                             color:0,0,0,1
-                        GridLayout:
-                            cols:4
-                            Label:
-                                id:'fbs'
-                                text:"0" 
-                                color:0,0,0,1         
-                            CheckBox:
-                                group:'fbs'
-                                on_active:root.checkbox_click_fbs(self,self.active,'0')
-                                color:0,0,0,1
-                            Label:
-                                id:'fbs'
-                                text:"1"  
-                                color:0,0,0,1                                      
-                            CheckBox:
-                                group:'fbs'
-                                on_active:root.checkbox_click_fbs(self,self.active,'1')
-                                color:0,0,0,1
                         Label:
-                            text:'ECG'
+                            id:'gen'
+                            text:"Female"  
+                            color:0,0,0,1                                      
+                        CheckBox:
+                            group:'sex'
+                            on_active:root.checkbox_click_sex(self,self.active,'1')
                             color:0,0,0,1
-                        BoxLayout:
-                            orientation: 'vertical'
-                            size:root.width,root.height
-                            cols:2
-                            Label:
-                                id:slide_ecg
-                                text:"Ecg"
-                                color:0,0,0,1
-                                font_size:15
-                            Slider:
-                                min:0
-                                max:3
-                                step:1
-                                orientation: 'horizontal'
-                                on_value:root.slide_it_ecg(*args)
-                            
-                        Label:
-                            text:'Thalaz'
-                            color:0,0,0,1
-                        BoxLayout:
-                            orientation: 'vertical'
-                            size:root.width,root.height
-                            cols:2
-                            Label:
-                                id:slide_thalaz
-                                text:"Thalaz"
-                                color:0,0,0,1
-                                font_size:15
-                            Slider:
-                                min:60
-                                max:200
-                                step:1
-                                orientation: 'horizontal'
-                                on_value:root.slide_it_thalaz(*args)
-                            
-                        Label:
-                            text:'Exong'
-                            color:0,0,0,1
-                        GridLayout:
-                            cols:4
-                            Label:
-                                id:'exong'
-                                text:"Yes" 
-                                color:0,0,0,1         
-                            CheckBox:
-                                group:'exong'
-                                on_active:root.checkbox_click_exong(self,self.active,'1')
-                                color:0,0,0,1
-                            Label:
-                                id:'exong'
-                                text:"No"  
-                                color:0,0,0,1                                      
-                            CheckBox:
-                                group:'exong'
-                                on_active:root.checkbox_click_exong(self,self.active,'0')
-                                color:0,0,0,1
-
-                        Label:
-                            text:"Old Peak"
-                            color:0,0,0,1
-                        TextInput:
-                            id:Oldpeak
-                            hint_text:"range 0 to 10 by step 0.1"
-                            input_type:'number'
-                            multiline:False
-
-                        Label:
-                            text:'Slope'
-                            color:0,0,0,1
-                        GridLayout:
-                            cols:6
-                            Label:
-                                id:'slope'
-                                text:"0"  
-                                color:0,0,0,1                                      
-                            CheckBox:
-                                group:'slope'
-                                on_active:root.checkbox_click_slope(self,self.active,'0')
-                                color:0,0,0,1
-                            Label:
-                                id:'slope'
-                                text:"1"  
-                                color:0,0,0,1                                      
-                            CheckBox:
-                                group:'slope'
-                                on_active:root.checkbox_click_slope(self,self.active,'1')
-                                color:0,0,0,1
-                            Label:
-                                id:'slope'
-                                text:"2" 
-                                color:0,0,0,1         
-                            CheckBox:
-                                group:'slope'
-                                on_active:root.checkbox_click_slope(self,self.active,'2')
-                                color:0,0,0,1
-
-
-                        Label:
-                            text:'Ca'
-                            color:0,0,0,1
-                        BoxLayout:
-                            orientation: 'vertical'
-                            size:root.width,root.height
-                            cols:2
-                            Label:
-                                id:slide_ca
-                                text:"CA"
-                                color:0,0,0,1
-                                font_size:15
-                            Slider:
-                                min:0
-                                max:3
-                                step:1
-                                orientation: 'horizontal'
-                                on_value:root.slide_it_ca(*args) 
-
-                        Label:
-                            text:'Thal'
-                            color:0,0,0,1
-                        GridLayout:
-                            cols:6
-                            Label:
-                                id:'thal'
-                                text:"0" 
-                                color:0,0,0,1         
-                            CheckBox:
-                                group:'thal'
-                                on_active:root.checkbox_click_thal(self,self.active,'0')
-                                color:0,0,0,1
-                            Label:
-                                id:'thal'
-                                text:"1"  
-                                color:0,0,0,1                                      
-                            CheckBox:
-                                group:'thal'
-                                on_active:root.checkbox_click_thal(self,self.active,'1')
-                                color:0,0,0,1
-                            Label:
-                                id:'thal'
-                                text:"2"  
-                                color:0,0,0,1                                      
-                            CheckBox:
-                                group:'thal'
-                                on_active:root.checkbox_click_thal(self,self.active,'1')
-                                color:0,0,0,1
-                            
                     
+
+                    Label:
+                        text:"Cheast pain"
+                        color:0,0,0,1 
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size:root.width,root.height
+                        cols:2
+                        Label:
+                            id:slide_cheast
+                            text:"Cheast Pain"
+                            color:0,0,0,1
+                            font_size:15
+                        Slider:
+                            min:0
+                            max:3
+                            step:1
+                            orientation: 'horizontal'
+                            on_value:root.slide_it_cp(*args)
+
+
+                    Label:
+                        text:'Rbp'
+                        color:0,0,0,1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size:root.width,root.height
+                        cols:2
+                        Label:
+                            id:slide_trp
+                            text:"rbp"
+                            color:0,0,0,1
+                            font_size:15
+                        Slider:
+                            min:90
+                            max:150
+                            step:1
+                            orientation: 'horizontal'
+                            on_value:root.slide_it_trp(*args)
+                        
+                    Label:
+                        text:'Cholestrol'
+                        color:0,0,0,1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size:root.width,root.height
+                        cols:2
+                        Label:
+                            id:slide_cholestrol
+                            text:"Cholestrol"
+                            color:0,0,0,1
+                            font_size:15
+                        Slider:
+                            min:120
+                            max:600
+                            step:1
+                            orientation: 'horizontal'
+                            on_value:root.slide_it_cholestrol(*args) 
+
+                    Label:
+                        text:'Fbs'
+                        color:0,0,0,1
+                    GridLayout:
+                        cols:4
+                        Label:
+                            id:'fbs'
+                            text:"0" 
+                            color:0,0,0,1         
+                        CheckBox:
+                            group:'fbs'
+                            on_active:root.checkbox_click_fbs(self,self.active,'0')
+                            color:0,0,0,1
+                        Label:
+                            id:'fbs'
+                            text:"1"  
+                            color:0,0,0,1                                      
+                        CheckBox:
+                            group:'fbs'
+                            on_active:root.checkbox_click_fbs(self,self.active,'1')
+                            color:0,0,0,1
+                    Label:
+                        text:'ECG'
+                        color:0,0,0,1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size:root.width,root.height
+                        cols:2
+                        Label:
+                            id:slide_ecg
+                            text:"Ecg"
+                            color:0,0,0,1
+                            font_size:15
+                        Slider:
+                            min:0
+                            max:3
+                            step:1
+                            orientation: 'horizontal'
+                            on_value:root.slide_it_ecg(*args)
+                        
+                    Label:
+                        text:'Thalaz'
+                        color:0,0,0,1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size:root.width,root.height
+                        cols:2
+                        Label:
+                            id:slide_thalaz
+                            text:"Thalaz"
+                            color:0,0,0,1
+                            font_size:15
+                        Slider:
+                            min:60
+                            max:200
+                            step:1
+                            orientation: 'horizontal'
+                            on_value:root.slide_it_thalaz(*args)
+                        
+                    Label:
+                        text:'Exong'
+                        color:0,0,0,1
+                    GridLayout:
+                        cols:4
+                        Label:
+                            id:'exong'
+                            text:"Yes" 
+                            color:0,0,0,1         
+                        CheckBox:
+                            group:'exong'
+                            on_active:root.checkbox_click_exong(self,self.active,'1')
+                            color:0,0,0,1
+                        Label:
+                            id:'exong'
+                            text:"No"  
+                            color:0,0,0,1                                      
+                        CheckBox:
+                            group:'exong'
+                            on_active:root.checkbox_click_exong(self,self.active,'0')
+                            color:0,0,0,1
+
+                    Label:
+                        text:"Old Peak"
+                        color:0,0,0,1
+                    TextInput:
+                        id:Oldpeak
+                        hint_text:"range 0 to 10 by step 0.1"
+                        input_type:'number'
+                        multiline:False
+
+                    Label:
+                        text:'Slope'
+                        color:0,0,0,1
+                    GridLayout:
+                        cols:6
+                        Label:
+                            id:'slope'
+                            text:"0"  
+                            color:0,0,0,1                                      
+                        CheckBox:
+                            group:'slope'
+                            on_active:root.checkbox_click_slope(self,self.active,'0')
+                            color:0,0,0,1
+                        Label:
+                            id:'slope'
+                            text:"1"  
+                            color:0,0,0,1                                      
+                        CheckBox:
+                            group:'slope'
+                            on_active:root.checkbox_click_slope(self,self.active,'1')
+                            color:0,0,0,1
+                        Label:
+                            id:'slope'
+                            text:"2" 
+                            color:0,0,0,1         
+                        CheckBox:
+                            group:'slope'
+                            on_active:root.checkbox_click_slope(self,self.active,'2')
+                            color:0,0,0,1
+
+
+                    Label:
+                        text:'Ca'
+                        color:0,0,0,1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size:root.width,root.height
+                        cols:2
+                        Label:
+                            id:slide_ca
+                            text:"CA"
+                            color:0,0,0,1
+                            font_size:15
+                        Slider:
+                            min:0
+                            max:3
+                            step:1
+                            orientation: 'horizontal'
+                            on_value:root.slide_it_ca(*args) 
+
+                    Label:
+                        text:'Thal'
+                        color:0,0,0,1
+                    GridLayout:
+                        cols:6
+                        Label:
+                            id:'thal'
+                            text:"0" 
+                            color:0,0,0,1         
+                        CheckBox:
+                            group:'thal'
+                            on_active:root.checkbox_click_thal(self,self.active,'0')
+                            color:0,0,0,1
+                        Label:
+                            id:'thal'
+                            text:"1"  
+                            color:0,0,0,1                                      
+                        CheckBox:
+                            group:'thal'
+                            on_active:root.checkbox_click_thal(self,self.active,'1')
+                            color:0,0,0,1
+                        Label:
+                            id:'thal'
+                            text:"2"  
+                            color:0,0,0,1                                      
+                        CheckBox:
+                            group:'thal'
+                            on_active:root.checkbox_click_thal(self,self.active,'1')
+                            color:0,0,0,1
+                        
                 
-                
-                        GridLayout:
-                            cols:1 
-                            FloatLayout:   
-                                Button:
-                                    background_color: 0.4, 0.5, 0.6, 1
-                                    size_hint: None,None
-                                    size:125,25
-                                    # pos:305,25
-                                    pos:350,10
-                                    font_size:30
-                                    on_press:root.calc()
-                                    Image:
-                                        source:'submit.jpg'
-                                        size:125,125
-                                        pos:350,-50
+            
+            
+                    GridLayout:
+                        cols:1 
+                        FloatLayout:   
+                            Button:
+                                background_color: 0.4, 0.5, 0.6, 1
+                                size_hint: None,None
+                                size:125,25
+                                # pos:305,25
+                                pos:350,10
+                                font_size:30
+                                on_press:root.calc()
+                                Image:
+                                    source:'submit.jpg'
+                                    size:125,125
+                                    pos:350,-50
 
 
 
