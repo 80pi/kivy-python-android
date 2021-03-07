@@ -83,7 +83,7 @@ class Form(Screen):
             sm.current='result'
         '''
         # ?testign
-        '''
+        
         try:
             l=[]
             if(re.match(r'^[a-zA-Z ]+$',self.nn.text)):
@@ -102,10 +102,10 @@ class Form(Screen):
                 sm.current='result'
             else:
                 raise Exception("Name not corret")
-        except:
-            print("give all values")
+        except Exception as e:
+            print(e)
             invalidLogin()
-        '''
+        
     pass
 
 
