@@ -25,7 +25,8 @@ Manager:
                 background_color: 0, 0, 1, 1
                 size_hint:None,None
                 size:100,100
-                pos:360,25
+                # pos:360,25
+                pos_hint: {"center_x":.5,"bottom":1 }
                 font_size: 40
                 on_release:
                     app.root.current="form"
@@ -33,7 +34,8 @@ Manager:
                 Image:
                     source:'form.png'
                     size:120,120
-                    pos:350,25
+                    pos:710,0
+                    # pos_hint: {"center_x":.5,"bottom":1 }
 
             
 
@@ -52,12 +54,8 @@ Manager:
     slide_cheast:slide_cheast
     slide_ca:slide_ca
     
-    BoxLayout:
-        size_hint: None,None
-        size:800,600
-        # Label:
-        #     text:"Form"
-        #     color:0,0,0,1
+    GridLayout:
+        cols:1
         ScrollView:
             size_hint_y:.80
             pos_hint: {'x':0,'y':.10 }
@@ -446,7 +444,7 @@ Manager:
                 background_color: (1,1,1,1)
                 size_hint: None,None
                 size:90,50
-                pos:260,50
+                pos:500,50
                 font_size:30
                 on_release:
                     app.root.current="main"
@@ -454,13 +452,14 @@ Manager:
                 Image:
                     source:'menu.png'
                     size:100,100
-                    pos:250,25
+                    pos:500,25
                     
             Button:
                 background_color: 0.1, 0.2, 0.6, 1
                 size_hint: None,None
                 size:90,90
-                pos:510,25
+                pos:810,25
+                # pos_hint: {'x':0.5 ,"right":1}
                 font_size:30
                 on_release:
                     app.root.current="form"
@@ -468,4 +467,4 @@ Manager:
                 Image:
                     source:'form.png'
                     size:120,120
-                    pos:500,25
+                    pos:800,25
