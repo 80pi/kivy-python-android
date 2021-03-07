@@ -65,28 +65,45 @@ class Form(Screen):
     def calc(self):
         nn=ObjectProperty(None)
         op=ObjectProperty(None)
-        
-        try:
-            l=[]
-            if(re.match(r'^[a-zA-Z ]+$',self.nn.text)):
-                l.extend([self.age,self.sex,self.cp,self.trp,self.cholestrol,self.fbs,self.ecg,self.thalaz,self.exong,self.op.text,self.slope])
-                final_values=[np.array(l)]
-                print(final_values)
-                model = pickle.load(open('model.pkl', 'rb'))
-                prediction=model.predict(final_values)
-                print(prediction)
-                Result.na=self.nn.text
-                if prediction[0]==0:
-                    Result.fin='You are not Diagnosed'
-                else:
-                    Result.fin='You are Diagnosed'
-
-                sm.current='result'
+        l=[]
+        if(re.match(r'^[a-zA-Z ]+$',self.nn.text)):
+            l.extend([self.age,self.sex,self.cp,self.trp,self.cholestrol,self.fbs,self.ecg,self.thalaz,self.exong,self.op.text,self.slope])
+            final_values=[np.array(l)]
+            print(final_values)
+            model = pickle.load(open('model.pkl', 'rb'))
+            prediction=model.predict(final_values)
+            print(prediction)
+            Result.na=self.nn.text
+            if prediction[0]==0:
+                Result.fin='You are not Diagnosed'
             else:
-                raise Exception("Name not corret")
-        except:
-            print("give all values")
-            invalidLogin()
+                Result.fin='You are Diagnosed'
+
+            sm.current='result'
+        
+        # ?testign
+        
+        # try:
+        #     l=[]
+        #     if(re.match(r'^[a-zA-Z ]+$',self.nn.text)):
+        #         l.extend([self.age,self.sex,self.cp,self.trp,self.cholestrol,self.fbs,self.ecg,self.thalaz,self.exong,self.op.text,self.slope])
+        #         final_values=[np.array(l)]
+        #         print(final_values)
+        #         model = pickle.load(open('model.pkl', 'rb'))
+        #         prediction=model.predict(final_values)
+        #         print(prediction)
+        #         Result.na=self.nn.text
+        #         if prediction[0]==0:
+        #             Result.fin='You are not Diagnosed'
+        #         else:
+        #             Result.fin='You are Diagnosed'
+
+        #         sm.current='result'
+        #     else:
+        #         raise Exception("Name not corret")
+        # except:
+        #     print("give all values")
+        #     invalidLogin()
     pass
 
 
