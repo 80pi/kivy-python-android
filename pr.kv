@@ -26,7 +26,6 @@ Manager:
                 size_hint:None,None
                 size:100,100
                 pos:520,25
-                # pos_hint: {"center_x":.5,"bottom":1 }
                 font_size: 40
                 on_release:
                     app.root.current="form"
@@ -35,11 +34,7 @@ Manager:
                     source:'form.png'
                     size:120,120
                     pos:510,25
-                    # pos_hint: {"center_x":.5,"bottom":1 }
-
-            
-
-
+                    
 <Form>:
     name:"form" 
     nn:name
@@ -50,7 +45,6 @@ Manager:
     slide_cholestrol:slide_cholestrol
     slide_ecg:slide_ecg
     slide_thalaz:slide_thalaz
-    # slide_oldpeak:slide_oldpeak
     slide_cheast:slide_cheast
     slide_ca:slide_ca
 
@@ -97,8 +91,6 @@ Manager:
                         Label:
                             text:'Age'
                             color:0,0,0,1
-                        # secodm method for age slider
-                        # slide_text:slider_label
                         BoxLayout:
                             orientation: 'vertical'
                             size:root.width,root.height
@@ -116,7 +108,7 @@ Manager:
                                 on_value:root.slide_it_age(*args)
                                 
 
-                # radio button
+                
                         Label:
                             text:'Gender'
                             color:0,0,0,1
@@ -138,7 +130,7 @@ Manager:
                                 group:'sex'
                                 on_active:root.checkbox_click_sex(self,self.active,'1')
                                 color:0,0,0,1
-                        # cheast pain need to be four values
+                        
 
                         Label:
                             text:"Cheast pain"
@@ -174,7 +166,7 @@ Manager:
                                 font_size:15
                             Slider:
                                 min:90
-                                max:200
+                                max:150
                                 step:1
                                 orientation: 'horizontal'
                                 on_value:root.slide_it_trp(*args)
@@ -192,8 +184,8 @@ Manager:
                                 color:0,0,0,1
                                 font_size:15
                             Slider:
-                                min:100
-                                max:200
+                                min:120
+                                max:600
                                 step:1
                                 orientation: 'horizontal'
                                 on_value:root.slide_it_cholestrol(*args) 
@@ -252,7 +244,7 @@ Manager:
                                 font_size:15
                             Slider:
                                 min:60
-                                max:220
+                                max:200
                                 step:1
                                 orientation: 'horizontal'
                                 on_value:root.slide_it_thalaz(*args)
@@ -279,24 +271,6 @@ Manager:
                                 on_active:root.checkbox_click_exong(self,self.active,'0')
                                 color:0,0,0,1
 
-                        # Label:
-                        #     text:'Old Peak'
-                        #     color:0,0,0,1
-                        # BoxLayout:
-                        #     orientation: 'vertical'
-                        #     size:root.width,root.height
-                        #     cols:2
-                        #     Label:
-                        #         id:slide_oldpeak
-                        #         text:"Oldpeak"
-                        #         color:0,0,0,1
-                        #         font_size:15
-                        #     Slider:
-                        #         min:0
-                        #         max:10
-                        #         step:0.1
-                        #         orientation: 'horizontal'
-                        #         on_value:root.slide_it_oldpeak(*args) 
                         Label:
                             text:"Old Peak"
                             color:0,0,0,1
@@ -356,9 +330,6 @@ Manager:
                                 orientation: 'horizontal'
                                 on_value:root.slide_it_ca(*args) 
 
-                        
-
-
                         Label:
                             text:'Thal'
                             color:0,0,0,1
@@ -403,9 +374,6 @@ Manager:
                                     pos:350,10
                                     font_size:30
                                     on_press:root.calc()
-                                    # on_release:
-                                    #     app.root.current="result"
-                                    #     root.manager.transition.direction="left"
                                     Image:
                                         source:'submit.jpg'
                                         size:125,125
@@ -461,7 +429,6 @@ Manager:
                 size_hint: None,None
                 size:90,90
                 pos:810,25
-                # pos_hint: {'x':0.5 ,"right":1}
                 font_size:30
                 on_release:
                     app.root.current="form"
